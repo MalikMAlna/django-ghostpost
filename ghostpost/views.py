@@ -23,3 +23,22 @@ def addpost(request):
             return HttpResponseRedirect(reverse('homepage'))
     form = AddPostForm()
     return render(request, html, {"form": form})
+
+
+def post_detail(request, id):
+    post = Post.objects.get(id=id)
+    return render(request, 'postdetail.html', {'post': post})
+
+
+def upvoteview(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post.up_vote += 1
+    post.save()
+    return HttpResponseRedirect(reverse('homepage'))
+
+
+def downvoteview(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post.down_vote += 1
+    post.save()
+    return HttpResponseRedirect(reverse('homepage'))
