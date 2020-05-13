@@ -1,10 +1,12 @@
-<h1>TEST</h1>
 {%for post in posts%}
 {%if post.b_or_r == True%}
 <h3>Boast</h3>
-{%else %}
+{%else%}
 <h3>Roast</h3>
 {% endif %}
-<p>{{post.content}}</p>
+<a href="{% url 'post-detail' post.id %}"><p>{{post.content}}</p></a> 
+--- {{ post.up_vote|add:post.down_vote }} Karma
 {%endfor%}
-<a href="/add-post/">Submit a Boast or Roast</a>
+<br>
+<br>
+<a href="/add-post/">Submit a Boast or a Roast</a>

@@ -34,11 +34,11 @@ def upvoteview(request, post_id):
     post = Post.objects.get(id=post_id)
     post.up_vote += 1
     post.save()
-    return HttpResponseRedirect(reverse('homepage'))
+    return HttpResponseRedirect(reverse('post-detail', kwargs={"id": post_id}))
 
 
 def downvoteview(request, post_id):
     post = Post.objects.get(id=post_id)
-    post.down_vote += 1
+    post.down_vote += -1
     post.save()
-    return HttpResponseRedirect(reverse('homepage'))
+    return HttpResponseRedirect(reverse('post-detail', kwargs={"id": post_id}))
