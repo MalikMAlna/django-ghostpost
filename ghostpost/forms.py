@@ -2,11 +2,9 @@ from django import forms
 
 
 class AddPost(forms.Form):
-    b_or_r = forms.BooleanField()
+    boast_or_Roast = forms.BooleanField(
+        help_text="Checked is Boast, Unchecked is Roast")
     content = forms.CharField(max_length=280)
-    up_vote = forms.IntegerField(default=0)
-    down_vote = forms.IntegerField(default=0)
-    created = forms.DateTimeField()
 
 
 """

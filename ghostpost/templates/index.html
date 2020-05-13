@@ -1,1 +1,10 @@
 <h1>TEST</h1>
+{%for post in posts%}
+{%if post.b_or_r == True%}
+<h3>Boast</h3>
+{%else %}
+<h3>Roast</h3>
+{% endif %}
+<p>{{post.content}}</p>
+{%endfor%}
+<a href="/add-post/">Submit a Boast or Roast</a>
