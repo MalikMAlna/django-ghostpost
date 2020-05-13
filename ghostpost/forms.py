@@ -2,8 +2,10 @@ from django import forms
 
 
 class AddPostForm(forms.Form):
-    boast_or_Roast = forms.BooleanField(
-        help_text="Checked is Boast, Unchecked is Roast")
+    b_or_r = forms.BooleanField(
+        required=False,
+        help_text="Checked is Boast, Unchecked is Roast"
+    )
     content = forms.CharField(max_length=280)
 
 
