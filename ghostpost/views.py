@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from .models import Post
-from .forms import AddPost
+from .forms import AddPostForm
 from .models import Post
 
 
@@ -11,5 +11,8 @@ def index(request):
 
 def addpost(request):
     html = 'genericform.html'
-    form = AddPost()
+
+    if request.method == "POST":
+        form = AddPostForm(request.POST)
+    form = AddPostForm()
     return render(request, html, {"form": form})
