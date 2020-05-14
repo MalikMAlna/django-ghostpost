@@ -2,12 +2,19 @@ from django.shortcuts import render, reverse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from .forms import AddPostForm
 from .models import Post
+from .filters import PostFilter
 
 
 class PostListView(ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["filter"] = PostFilter(
+            self.request.GET, queryset=self.get_queryset())
+        return context
 
 
 class PostDetailView(DetailView):
