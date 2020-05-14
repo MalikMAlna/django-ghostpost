@@ -9,3 +9,9 @@ class Post(models.Model):
     up_vote = models.IntegerField(default=0)
     down_vote = models.IntegerField(default=0)
     created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.content
+
+    class Meta:
+        ordering = ('created',)

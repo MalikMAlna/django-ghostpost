@@ -5,7 +5,7 @@
 {% endif %}
 <p>{{post.content}}</p>
 --- {{ post.up_vote|add:post.down_vote }} Karma
-<span><a href='/up-vote/{{post.id}}/'>Up Vote</a></span>
+<span><a href='/up-vote/{{post.pk}}/'>Up Vote</a></span>
 <span><a href='/down-vote/{{post.id}}/'>Down Vote</a></span>
 <br/>
 <span><a href='/delete/{{post.id}}/'>Delete This Post</a></span>
