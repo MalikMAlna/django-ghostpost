@@ -4,19 +4,11 @@ from .forms import AddPostForm
 from .models import Post
 
 
-# def index(request):
-#     posts = Post.objects.all().orderby()
-#     return render(request, 'index.html', {"posts": posts})
-
 class PostListView(ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'index.html'
 
-
-# def post_detail(request, id):
-#     post = Post.objects.get(id=id)
-#     return render(request, 'postdetail.html', {'post': post})
 
 class PostDetailView(DetailView):
     model = Post
