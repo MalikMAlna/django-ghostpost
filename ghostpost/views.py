@@ -42,3 +42,9 @@ def downvoteview(request, post_id):
     post.down_vote += -1
     post.save()
     return HttpResponseRedirect(reverse('post-detail', kwargs={"id": post_id}))
+
+
+def deletepost(request, post_id=None):
+    post_to_delete = Post.objects.get(id=post_id)
+    post_to_delete.delete()
+    return HttpResponseRedirect(reverse('homepage'))
