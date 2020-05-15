@@ -39,7 +39,7 @@ class PostFilter(django_filters.FilterSet):
 
     def filter_by_total_karma(self, queryset, name, value):
         if value == 'most_karma':
-            expression = Post.objects.order_by('-up_vote', 'down_vote')
+            expression = Post.objects.order_by('-down_vote', '-up_vote')
         elif value == 'least_karma':
             expression = Post.objects.order_by('down_vote', 'up_vote')
         return expression

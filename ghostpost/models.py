@@ -14,4 +14,4 @@ class Post(models.Model):
         return self.content
 
     class Meta:
-        ordering = ('created',)
+        ordering = ('-created',)
